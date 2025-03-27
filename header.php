@@ -4,11 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sistema INF3</title>
-        <!-- Última versão compilada e minimizada do CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <!-- Última versão compilada e minimizada do CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Última versão compilada de JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Última versão compilada de JavaScript -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
         
@@ -31,10 +31,10 @@
                             <a class="nav-link active" href="index.php">Página Inicial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#formProduto.php">Cadastrar Produto</a>
+                            <a class="nav-link" href="formProduto.php">Cadastrar Produto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#formLogin.php">Login</a>
+                            <a class="nav-link" href="formLogin.php">Login</a>
                         </li>
                     </ul>
                 </div>

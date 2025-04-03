@@ -42,4 +42,4 @@
         </nav>
 
         <!-- Início do Container para abrigar os conteúdos das páginas do sistema -->
-        <div class="container-fluid text-center mt-5 mb-5">
+        <div class="container-fluid mt-5 mb-5">

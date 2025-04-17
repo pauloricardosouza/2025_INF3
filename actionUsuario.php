@@ -22,6 +22,13 @@
                 else{
                     //Armazena valor do formulário na variável
                     $nomeUsuario = filtrar_entrada($_POST["nomeUsuario"]);
+                    
+                    //Utiliza a função preg_match() para verificar se há apenas letras no nome
+                    if(!preg_match('/^[\p{L} ]+$/u', $nomeUsuario)){
+                        echo "<div class='alert alert-warning text-center'>O campo <strong>NOME</strong> deve conter apenas letras!</div>";
+                        $erroPreenchimento = true;
+                    }
+
                 }
 
                 //Validação do campo dataNascimentoUsuario

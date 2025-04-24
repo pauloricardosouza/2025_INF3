@@ -12,8 +12,5 @@
     if(!$conn){
         echo "<p>Erro ao tentar conectar a aplicação à base de dados <strong>$database</strong>!</p>";
     }
-    else{
-        echo "<p>Conectado com sucesso à base de dados <strong>$database</strong>!</p>";
-    }
 
 ?>

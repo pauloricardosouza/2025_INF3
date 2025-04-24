@@ -156,36 +156,51 @@
 
                 //Se não houver erro de preenchimento, exibe alerta de sucesso e uma tabela com os dados informados
                 if(!$erroPreenchimento && !$erroUpload){
-                    echo "<div class='alert alert-success text-center'><strong>Usuário</strong> cadastrado(a) com sucesso!</div>";
-                    echo "
-                        <div class='container mt-3'>
-                            <div class='container mt-3 text-center'>
-                                <img src='$fotoUsuario' style='width:150px;' title='Foto de $nomeUsuario'>
+
+                    //Cria uma variável para armazenar a QUERY para realizar a inserção dos dados do Usuário na tabela Usuarios
+                    $inserirUsuario = "INSERT INTO Usuarios (fotoUsuario, nomeUsuario, dataNascimentoUsuario, cidadeUsuario, telefoneUsuario, emailUsuario, senhaUsuario) VALUES ('$fotoUsuario', '$nomeUsuario', '$dataNascimentoUsuario', '$cidadeUsuario', '$telefoneUsuario', '$emailUsuario', '$senhaUsuario')";
+
+                    //Inclui o arquivo de conexão com o Banco de Dados
+                    include("conexaoBD.php");
+
+                    //Se conseguir executar a query para inserção, exibe alerta de sucesso e a tabela com os dados informados
+                    if(mysqli_query($conn, $inserirUsuario)){
+
+                        echo "<div class='alert alert-success text-center'><strong>Usuário</strong> cadastrado(a) com sucesso!</div>";
+                        echo "
+                            <div class='container mt-3'>
+                                <div class='container mt-3 text-center'>
+                                    <img src='$fotoUsuario' style='width:150px;' title='Foto de $nomeUsuario'>
+                                </div>
+                                <table class='table'>
+                                    <tr>
+                                        <th>NOME</th>
+                                        <td>$nomeUsuario</td>
+                                    </tr>
+                                    <tr>
+                                        <th>DATA DE NASCIMENTO</th>
+                                        <td>$diaNascimentoUsuario/$mesNascimentoUsuario/$anoNascimentoUsuario</td>
+                                    </tr>
+                                    <tr>
+                                        <th>CIDADE</th>
+                                        <td>$cidadeUsuario</td>
+                                    </tr>
+                                    <tr>
+                                        <th>TELEFONE</th>
+                                        <td>$telefoneUsuario</td>
+                                    </tr>
+                                    <tr>
+                                        <th>EMAIL</th>
+                                        <td>$emailUsuario</td>
+                                    </tr>
+                                </table>
                             </div>
-                            <table class='table'>
-                                <tr>
-                                    <th>NOME</th>
-                                    <td>$nomeUsuario</td>
-                                </tr>
-                                <tr>
-                                    <th>DATA DE NASCIMENTO</th>
-                                    <td>$diaNascimentoUsuario/$mesNascimentoUsuario/$anoNascimentoUsuario</td>
-                                </tr>
-                                <tr>
-                                    <th>CIDADE</th>
-                                    <td>$cidadeUsuario</td>
-                                </tr>
-                                <tr>
-                                    <th>TELEFONE</th>
-                                    <td>$telefoneUsuario</td>
-                                </tr>
-                                <tr>
-                                    <th>EMAIL</th>
-                                    <td>$emailUsuario</td>
-                                </tr>
-                            </table>
-                        </div>
-                    ";
+                        ";
+                        mysqli_close($conn); //Essa função encerra a conexão com o Banco de Dados
+                    }
+                    else{
+                        echo "<div class='alert alert-danger text-center'>Erro ao tentar cadastrar <strong>Usuário</strong> no Banco de Dados $database!</div>" . mysqli_error($conn);
+                    }
                 }
             }
             else{

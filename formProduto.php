@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-floating mb-3 mt-3">
                         <textarea class="form-control" id="descricaoProduto" placeholder="Informe uma breve descrição sobre o Produto" name="descricaoProduto" required></textarea>
-                        <label for="nomeProduto">Descrição do Produto</label>
+                        <label for="descricaoProduto">Descrição do Produto</label>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback"></div>
                     </div>

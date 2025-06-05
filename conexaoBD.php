@@ -1,16 +1,16 @@
 <?php
 
-    $hostBD   = "localhost"; //Localização do servidor de BD
-    $userBD   = "root"; //Usuário do BD
-    $senhaBD  = "root"; //Senha do BD
-    $database = "sistemainf3"; //Nome do BD no qual se deseja efetuar a conexão
+    $hostBD   = "localhost"; //Define o local do servidor do BD
+    $userBD   = "root"; //Define o usuário do BD (Padrão: root)
+    $senhaBD  = "root"; //Define a senha do BD (Padrão: "")
+    $database = "inf3"; //Define qual base será realizada a conexão
 
-    //Função do PHP responsável por estabelecer conexão com o BD
-    $conn = mysqli_connect($hostBD, $userBD, $senhaBD, $database);
+    //Função do PHP para estabelecer conexão com BD
+    $conn     = mysqli_connect($hostBD, $userBD, $senhaBD, $database);
 
-    //Se não conectar, exibe alerta de erro
+    //Verificar se houve conexão
     if(!$conn){
-        echo "<p>Erro ao tentar conectar à Base de Dados <strong>$database</strong></p>";
+        echo "<p>Erro ao tentar conectar a aplicação à base de dados <strong>$database</strong>!</p>";
     }
 
 ?>

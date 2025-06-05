@@ -1,11 +1,10 @@
-    <!-- Fim do Container para abrigar o conteúdo das páginas do sistema -->
-    </div>
+        <!-- Final do Container para abrigar os conteúdos das páginas do sistema -->
+        </div>
 
-    <!-- Container para abrigar o rodapé do sistema -->
-    <div class="container-fluid bg-dark text-light text-center p-2 fixed-bottom">
-        Sistema Web desenvolvido nas aulas de Programação Web I do IFPR Telêmaco Borba
-    </div>
+        <!-- Container para abrigar o rodapé do sistema -->
+        <div class="container-fluid text-center bg-dark text-light p-2 fixed-bottom">
+            Sistema desenvolvido nas aulas de Programação Web I do IFPR Telêmaco Borba
+        </div>  
 
-
-</body>
+    </body>
 </html>

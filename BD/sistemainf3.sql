@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/06/2025 às 19:01
+-- Tempo de geração: 12/06/2025 às 22:57
 -- Versão do servidor: 8.0.41
 -- Versão do PHP: 8.2.12
 
@@ -32,17 +32,18 @@ CREATE TABLE `produtos` (
   `fotoProduto` varchar(100) NOT NULL,
   `nomeProduto` varchar(20) NOT NULL,
   `descricaoProduto` varchar(200) NOT NULL,
-  `valorProduto` decimal(10,2) NOT NULL
+  `valorProduto` decimal(10,2) NOT NULL,
+  `statusProduto` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `produtos`
 --
 
-INSERT INTO `produtos` (`idProduto`, `fotoProduto`, `nomeProduto`, `descricaoProduto`, `valorProduto`) VALUES
-(1, 'img/xbox360.webp', 'Xbox 360', 'Console Microsoft Xbox 360 modelo Slim.', 500.00),
-(2, 'img/Fusca_Azul.jpeg', 'Fusca Azul', 'Veículo Volkswagen Fusca ano 1972, na cor azul metálico em excelente estado de conservação.', 20000.00),
-(3, 'img/tenisVans.jpg', 'Tênis Vans', 'Calçado Tênis Vans, modelo Oldschool, preto, número 40, novo na caixa.', 200.00);
+INSERT INTO `produtos` (`idProduto`, `fotoProduto`, `nomeProduto`, `descricaoProduto`, `valorProduto`, `statusProduto`) VALUES
+(1, 'img/xbox360.webp', 'Xbox 360', 'Console Microsoft Xbox 360 modelo Slim.', 500.00, 'disponivel'),
+(2, 'img/Fusca_Azul.jpeg', 'Fusca Azul', 'Veículo Volkswagen Fusca ano 1972, na cor azul metálico em excelente estado de conservação.', 20000.00, 'disponivel'),
+(3, 'img/tenisVans.jpg', 'Tênis Vans', 'Calçado Tênis Vans, modelo Oldschool, preto, número 40, novo na caixa.', 200.00, 'esgotado');
 
 -- --------------------------------------------------------
 

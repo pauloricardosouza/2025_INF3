@@ -65,7 +65,7 @@
                     <label for='filtroProduto'>Selecione um Filtro</label>
                     <br>
                 </div>
-                <button type='submit' class='btn btn-success' style='float:right'><i class='bi bi-funnel'></i> Filtrar Produtos</button>
+                <button type='submit' class='btn btn-outline-success' style='float:right'><i class='bi bi-funnel'></i> Filtrar Produtos</button>
                 <br>
             </form>
         ";
@@ -93,8 +93,22 @@
                         <div class='card' style='width:100%; height:100%'>
 
                             <div class='card-body' style='height:100%'>
-                                <a href='#visualizarProduto.php' style='text-decoration:none' title='Visualizar mais detalhes de $nomeProduto'>
-                                    <img class='card-img-top' src='$fotoProduto' alt='Foto de $nomeProduto'>
+                                <a href='visualizarProduto.php?idProduto=$idProduto' style='text-decoration:none' title='Visualizar mais detalhes de $nomeProduto'>
+                                    <div class='position-relative'> ";
+                                        if($statusProduto == 'esgotado'){
+                                            echo "
+                                                <div class='position-absolute top-50 start-50 translate-middle bg-danger text-white px-4 py-2 fs-6 fw-bold rounded shadow' style='z-index: 10; opacity: 0.85;'>
+                                                    ESGOTADO
+                                                </div>
+                                            ";
+                                        }
+                                        echo "
+                                            <img class='card-img-top' src='$fotoProduto' alt='Foto de $nomeProduto' ";
+                                                if($statusProduto == 'esgotado'){
+                                                    echo "style='filter:grayscale(100%)' ";
+                                                }
+                                            echo ">
+                                    </div>
                                 </a>
                             </div>
 
@@ -102,7 +116,7 @@
                                 <h4 class='card-title'>$nomeProduto</h4>
                                 <p class='card-text'>Valor: <strong>R$ $valorProduto</strong>
                                 <div class='d-grid' style='border-size:border-box'>
-                                    <a class='btn btn-outline-success' href='#visualizarProduto.php' style='text-decoration:none' title='Visualizar mais detalhes de $nomeProduto'>
+                                    <a class='btn btn-outline-success' href='visualizarProduto.php?idProduto=$idProduto' style='text-decoration:none' title='Visualizar mais detalhes de $nomeProduto'>
                                         <i class='bi bi-eye'></i> Visualizar Produto
                                     </a>
                                 </div>
@@ -111,6 +125,7 @@
                         </div> 
 
                     </div>
+
                 ";
             }
         ?>

@@ -1,5 +1,22 @@
+<?php
+    error_reporting(0); //Desabilitar reportagens de erros de execução
+    session_start(); //Inicia a sessão
+
+    if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){ //Verifica se há sessão ativa
+        $idUsuario    = $_SESSION['idUsuario']; //Armazena nas variáveis PHP os valores do Array Session
+        $tipoUsuario  = $_SESSION['tipoUsuario']; 
+        $nomeUsuario  = $_SESSION['nomeUsuario'];
+        $emailUsuario = $_SESSION['emailUsuario'];
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
+    <?php
+        //Configura o fuso horário para América/São Paulo
+        date_default_timezone_set('America/Sao_Paulo');
+    ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,12 +66,42 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="index.php">Página Inicial</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="formProduto.php">Cadastrar Produto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="formLogin.php">Login</a>
-                        </li>
+                        
+                        <?php
+                            if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
+                                //Se o tipo de usuário for administrador, exibe a opção 'Cadastrar Produto'
+                                if($tipoUsuario == 'administrador'){
+                                    echo "
+                                        <li class='nav-item'>
+                                            <a class='nav-link' href='formProduto.php' title='Cadastrar um Produto'>Cadastrar Produto</a>
+                                        </li>
+                                    ";
+                                }
+                                //Se o tipo do usuário não for administrador, exibe a opção 'Visualizar Pedidos'
+                                else{
+                                    echo "
+                                        <li class='nav-item'>
+                                            <a class='nav-link' href='#visualizarPedidos.php' title='Visualizar Pedidos'>Visualizar Pedidos</a>
+                                        </li>
+                                    ";
+                                }
+
+                                //Se estiver logado, exibe a opção 'Sair'
+                                echo "
+                                    <li class='nav-item'>
+                                        <a class='nav-link' href='logout.php' title='Sair do Sistema'>Sair</a>
+                                    </li>
+                                ";
+                            }
+                            else{
+                                //Se não estiver logado, exibe a opção 'Login'
+                                echo "
+                                    <li class='nav-item'>
+                                        <a class='nav-link' href='formLogin.php' title='Acessar o Sistema'>Login</a>
+                                    </li>
+                                ";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>

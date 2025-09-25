@@ -21,14 +21,15 @@
         //Cria variáveis PHP para armazenar registros encontrados no BD
         $idUsuario    = $registro['idUsuario'];
         $tipoUsuario  = $registro['tipoUsuario'];
-        $emailUsuario = $registro['emailUsuario'];
         $nomeUsuario  = $registro['nomeUsuario'];
+        $emailUsuario = $registro['emailUsuario'];
 
         //Cria variáveis de SESSÃO para armazenar valores das variáveis PHP
         $_SESSION['idUsuario']    = $idUsuario;
         $_SESSION['tipoUsuario']  = $tipoUsuario;
-        $_SESSION['emailUsuario'] = $emailUsuario;
         $_SESSION['nomeUsuario']  = $nomeUsuario;
+        $_SESSION['emailUsuario'] = $emailUsuario;
+        
 
         $_SESSION['logado'] = true; //Variável para controle de sessão
 

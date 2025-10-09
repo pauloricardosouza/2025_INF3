@@ -7,6 +7,9 @@
         $tipoUsuario  = $_SESSION['tipoUsuario']; 
         $nomeUsuario  = $_SESSION['nomeUsuario'];
         $emailUsuario = $_SESSION['emailUsuario'];
+
+        $nomeCompleto = explode(' ', $nomeUsuario);
+        $primeiroNome = $nomeCompleto[0];
     }
 
 ?>
@@ -90,6 +93,13 @@
                                 echo "
                                     <li class='nav-item'>
                                         <a class='nav-link' href='logout.php' title='Sair do Sistema'>Sair</a>
+                                    </li>
+                                ";
+
+                                //Se estiver logado, exibe saudações
+                                echo "
+                                    <li class='nav-item'>
+                                        <a class='nav-link' href='#'>Olá, $primeiroNome!</a>
                                     </li>
                                 ";
                             }

@@ -121,10 +121,10 @@
                                             <?php
                                                 //Verificar se há uma sessão iniciada
                                                 if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
-                                                    //Verificar se o tipo do usuário é 'cliente'
-                                                    if($tipoUsuario == 'cliente'){
-                                                        //Verificar se o produto está disponível
-                                                        if($statusProduto == 'disponivel'){
+                                                    //Verificar se o produto está disponível
+                                                    if($statusProduto == 'disponivel'){
+                                                        //Verificar se o tipo do usuário é 'cliente'
+                                                        if($tipoUsuario == 'cliente'){
                                                             echo "
                                                                 <form action='#efetuarCompra.php' method='POST'>
                                                                     <input type='hidden' name='idProduto' value='$idProduto'>
@@ -140,33 +140,42 @@
                                                         }
                                                         else{
                                                             echo "
-                                                                <div class='alert alert-secondary'>
-                                                                    Produto Esgotado! <i class='bi bi-emoji-frown'></i>
-                                                                </div>
+                                                                <form action='#formEditarProduto.php?idProduto=$idProduto' method='POST'>
+                                                                    <input type='hidden' name='idProduto' value='$idProduto'>
+                                                                    <button type='submit' class='btn btn-outline-primary'>
+                                                                        <i class='bi bi-pencil-square'></i>
+                                                                        Editar Produto
+                                                                    </button>
+                                                                </form>
                                                             ";
                                                         }
                                                     }
                                                     else{
                                                         echo "
-                                                            <form action='#formEditarProduto.php?idProduto=$idProduto' method='POST'>
-                                                                <input type='hidden' name='idProduto' value='$idProduto'>
-                                                                <button type='submit' class='btn btn-outline-primary'>
-                                                                    <i class='bi bi-pencil-square'></i>
-                                                                    Editar Produto
-                                                                </button>
-                                                            </form>
+                                                            <div class='alert alert-secondary'>
+                                                                Produto Esgotado! <i class='bi bi-emoji-frown'></i>
+                                                            </div>
                                                         ";
                                                     }
                                                 }
                                                 else{
-                                                    echo "
-                                                        <div class='alert alert-info'>
-                                                            <a href='formLogin.php' class='alert-link'>
-                                                                Acesse o sistema para poder comprar este produto!
-                                                                <i class='bi bi-person'></i>
-                                                            </a>
-                                                        </div>
-                                                    ";
+                                                    if($statusProduto == 'disponivel'){
+                                                        echo "
+                                                            <div class='alert alert-info'>
+                                                                <a href='formLogin.php' class='alert-link'>
+                                                                    Acesse o sistema para poder comprar este produto!
+                                                                    <i class='bi bi-person'></i>
+                                                                </a>
+                                                            </div>
+                                                        ";
+                                                    }
+                                                    else{
+                                                        echo "
+                                                            <div class='alert alert-secondary'>
+                                                                Produto Esgotado! <i class='bi bi-emoji-frown'></i>
+                                                            </div>
+                                                        ";
+                                                    }
                                                 }
                                             ?>
                                         </div>

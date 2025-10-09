@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/08/2025 às 22:55
+-- Tempo de geração: 09/10/2025 às 18:40
 -- Versão do servidor: 8.0.41
 -- Versão do PHP: 8.2.12
 
@@ -68,9 +68,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `fotoUsuario`, `nomeUsuario`, `dataNascimentoUsuario`, `cidadeUsuario`, `telefoneUsuario`, `emailUsuario`, `senhaUsuario`, `tipoUsuario`) VALUES
-(1, 'img/Classico_2D.webp', 'Sonic', '1991-04-10', 'telemacoBorba', '(42) 99999-9999', 'sonic@gmail.com', '202cb962ac59075b964b07152d234b70', 'administrador'),
-(2, 'img/mario.png', 'Mario Mario', '1983-12-10', 'imbau', '(42) 99999-7777', 'mario@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente'),
-(3, 'img/Luigi.png', 'Luigi Mario', '1986-03-20', 'telemacoBorba', '(42) 99988-7799', 'luigi@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente');
+(1, 'img/Classico_2D.webp', 'Administrador Teste', '1991-04-10', 'telemacoBorba', '(42) 99999-9999', 'administrador@gmail.com', '202cb962ac59075b964b07152d234b70', 'administrador'),
+(2, 'img/mario.png', 'Cliente Teste', '1983-12-10', 'imbau', '(42) 99999-7777', 'cliente@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente');
 
 --
 -- Índices para tabelas despejadas

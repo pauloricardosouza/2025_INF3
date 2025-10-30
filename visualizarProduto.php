@@ -126,7 +126,7 @@
                                                         //Verificar se o tipo do usuário é 'cliente'
                                                         if($tipoUsuario == 'cliente'){
                                                             echo "
-                                                                <form action='#efetuarCompra.php' method='POST'>
+                                                                <form action='efetuarCompra.php' method='POST'>
                                                                     <input type='hidden' name='idProduto' value='$idProduto'>
                                                                     <input type='hidden' name='fotoProduto' value='$fotoProduto'>
                                                                     <input type='hidden' name='nomeProduto' value='$nomeProduto'>

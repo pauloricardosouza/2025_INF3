@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/08/2025 às 22:55
+-- Tempo de geração: 30/10/2025 às 21:54
 -- Versão do servidor: 8.0.41
 -- Versão do PHP: 8.2.12
 
@@ -18,8 +18,23 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `sistemainf3`
+-- Banco de dados: `inf3`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `compras`
+--
+
+CREATE TABLE `compras` (
+  `idCompra` int NOT NULL,
+  `idUsuario` int NOT NULL,
+  `idProduto` int NOT NULL,
+  `valorCompra` decimal(10,2) NOT NULL,
+  `dataCompra` date NOT NULL,
+  `horaCompra` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -30,7 +45,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `produtos` (
   `idProduto` int NOT NULL,
   `fotoProduto` varchar(100) NOT NULL,
-  `nomeProduto` varchar(20) NOT NULL,
+  `nomeProduto` varchar(30) NOT NULL,
   `descricaoProduto` varchar(200) NOT NULL,
   `valorProduto` decimal(10,2) NOT NULL,
   `statusProduto` varchar(10) NOT NULL
@@ -41,9 +56,9 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`idProduto`, `fotoProduto`, `nomeProduto`, `descricaoProduto`, `valorProduto`, `statusProduto`) VALUES
-(1, 'img/xbox360.webp', 'Xbox 360', 'Console Microsoft Xbox 360 modelo Slim.', 500.00, 'disponivel'),
-(2, 'img/Fusca_Azul.jpeg', 'Fusca Azul', 'Veículo Volkswagen Fusca ano 1972, na cor azul metálico em excelente estado de conservação.', 20000.00, 'disponivel'),
-(3, 'img/tenisVans.jpg', 'Tênis Vans', 'Calçado Tênis Vans, modelo Oldschool, preto, número 40, novo na caixa.', 200.00, 'esgotado');
+(1, 'img/xbox360.webp', 'XBox 360 Slim', 'Console Xbox 360 modelo Slim bloqueado. Acompanha um controle original.', 600.00, 'disponivel'),
+(2, 'img/Fusca_Azul.jpeg', 'Fusca Azul', 'Volkswagen Fusca na cor Azul Metálico, ano 1973, interna em branco gelo, placa preta.', 20000.00, 'esgotado'),
+(3, 'img/tenisVans.jpg', 'Tênis Vans', 'Calçado Tênis Vans Preto, número 37, novo, na caixa.', 500.00, 'disponivel');
 
 -- --------------------------------------------------------
 
@@ -68,13 +83,20 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `fotoUsuario`, `nomeUsuario`, `dataNascimentoUsuario`, `cidadeUsuario`, `telefoneUsuario`, `emailUsuario`, `senhaUsuario`, `tipoUsuario`) VALUES
-(1, 'img/Classico_2D.webp', 'Sonic', '2025-04-17', 'telemacoBorba', '(42) 99999-9999', 'sonic@gmail.com', '202cb962ac59075b964b07152d234b70', 'administrador'),
-(2, 'img/mario.png', 'Mario Mario', '1985-08-13', 'imbau', '(42) 99999-5555', 'mario@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente'),
-(3, 'img/Luigi.png', 'Luigi Mario', '1987-03-30', 'ortigueira', '(42) 99999-7777', 'luigi@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente');
+(1, 'img/Classico_2D.webp', 'Administrador Teste', '1991-04-10', 'telemacoBorba', '(42) 99999-9999', 'administrador@gmail.com', '202cb962ac59075b964b07152d234b70', 'administrador'),
+(2, 'img/mario.png', 'Cliente Teste', '1983-12-10', 'imbau', '(42) 99999-7777', 'cliente@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`idCompra`),
+  ADD KEY `fk_compras_usuarios` (`idUsuario`),
+  ADD KEY `fk_compras_produtos` (`idProduto`);
 
 --
 -- Índices de tabela `produtos`
@@ -93,6 +115,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `compras`
+--
+ALTER TABLE `compras`
+  MODIFY `idCompra` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
@@ -103,6 +131,17 @@ ALTER TABLE `produtos`
 --
 ALTER TABLE `usuarios`
   MODIFY `idUsuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `compras`
+--
+ALTER TABLE `compras`
+  ADD CONSTRAINT `fk_compras_produtos` FOREIGN KEY (`idProduto`) REFERENCES `produtos` (`idProduto`),
+  ADD CONSTRAINT `fk_compras_usuarios` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

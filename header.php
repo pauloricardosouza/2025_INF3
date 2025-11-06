@@ -78,13 +78,16 @@
                                         <li class='nav-item'>
                                             <a class='nav-link' href='formProduto.php' title='Cadastrar um Produto'>Cadastrar Produto</a>
                                         </li>
+                                        <li class='nav-item'>
+                                            <a class='nav-link' href='visualizarVendas.php' title='Visualizar Vendas'>Visualizar Vendas</a>
+                                        </li>
                                     ";
                                 }
                                 //Se o tipo do usuário não for administrador, exibe a opção 'Visualizar Pedidos'
                                 else{
                                     echo "
                                         <li class='nav-item'>
-                                            <a class='nav-link' href='#visualizarPedidos.php' title='Visualizar Pedidos'>Visualizar Pedidos</a>
+                                            <a class='nav-link' href='#visualizarCompras.php' title='Visualizar Compras'>Visualizar Compras</a>
                                         </li>
                                     ";
                                 }

@@ -92,6 +92,19 @@
                 else{
                     //Armazena valor do formulário na variável
                     $emailUsuario = filtrar_entrada($_POST["emailUsuario"]);
+                    //Verificar se o email já está cadastrado na base de dados
+                    include "conexaoBD.php";
+
+                    $verificarEmail = "SELECT emailUsuario FROM Usuarios WHERE emailUsuario LIKE '$emailUsuario' ";
+
+                    $res = mysqli_query($conn, $verificarEmail) or die("Erro ao tentar verificar o email!");
+
+                    $totalEmailsCadastrados = mysqli_num_rows($res);
+                    if($totalEmailsCadastrados > 0){
+                        echo "<div class='alert alert-warning text-center'>O email <strong>$emailUsuario</strong> já foi cadastrado anteriormente no sistema!</div>";
+                        $erroPreenchimento = true;
+                    }
+
                 }
 
                 //Validação do campo senhaUsuario

@@ -1,3 +1,4 @@
+<?php include "validarSessao.php" ?>
 <?php include "header.php" ?>
 
 <div class="container text-center mb-3 mt-3">

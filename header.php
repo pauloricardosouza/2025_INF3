@@ -73,31 +73,6 @@
                         <?php
                             if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
                                 //Se o tipo de usuário for administrador, exibe a opção 'Cadastrar Produto'
-                                if($tipoUsuario == 'administrador'){
-                                    echo "
-                                        <li class='nav-item'>
-                                            <a class='nav-link' href='formProduto.php' title='Cadastrar um Produto'>Cadastrar Produto</a>
-                                        </li>
-                                        <li class='nav-item'>
-                                            <a class='nav-link' href='visualizarVendas.php' title='Visualizar Vendas'>Visualizar Vendas</a>
-                                        </li>
-                                    ";
-                                }
-                                //Se o tipo do usuário não for administrador, exibe a opção 'Visualizar Pedidos'
-                                else{
-                                    echo "
-                                        <li class='nav-item'>
-                                            <a class='nav-link' href='#visualizarCompras.php' title='Visualizar Compras'>Visualizar Compras</a>
-                                        </li>
-                                    ";
-                                }
-
-                                //Se estiver logado, exibe a opção 'Sair'
-                                echo "
-                                    <li class='nav-item'>
-                                        <a class='nav-link' href='logout.php' title='Sair do Sistema'>Sair</a>
-                                    </li>
-                                ";
 
                                 //Se estiver logado, exibe saudações
                                 echo "
@@ -105,6 +80,32 @@
                                         <a class='nav-link' href='#'>Olá, $primeiroNome!</a>
                                     </li>
                                 ";
+
+                                if($tipoUsuario == 'administrador'){
+                                    echo "
+                                        <li class='nav-item dropdown'>
+                                            <a class='nav-link dropdown-toggle' href='#' role='button' data-bs-toggle='dropdown'>Painel do Administrador</a>
+                                            <ul class='dropdown-menu'>
+                                                <li><a class='dropdown-item' href='formProduto.php'>Cadastrar Produto</a></li>
+                                                <li><a class='dropdown-item' href='visualizarVendas.php'>Visualizar Vendas</a></li>
+                                                <li><a class='dropdown-item' href='logout.php'>Sair</a></li>
+                                            </ul>
+                                        </li>
+                                    ";
+                                }
+                                //Se o tipo do usuário não for administrador, exibe a opção 'Visualizar Pedidos'
+                                else{
+                                    echo "
+                                        <li class='nav-item dropdown'>
+                                            <a class='nav-link dropdown-toggle' href='#' role='button' data-bs-toggle='dropdown'>Painel do Cliente</a>
+                                            <ul class='dropdown-menu'>
+                                                <li><a class='dropdown-item' href='visualizarCompras.php'>Visualizar Compras</a></li>
+                                                <li><a class='dropdown-item' href='logout.php'>Sair</a></li>
+                                            </ul>
+                                        </li>
+                                    ";
+                                }
+
                             }
                             else{
                                 //Se não estiver logado, exibe a opção 'Login'
